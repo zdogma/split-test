@@ -1,6 +1,8 @@
 class SitesController < ApplicationController
   def index
-    @title = ab_test('101_記事タイトル_バナー2', '広告タイトルA', '広告タイトルB', '広告タイトルC', '広告タイトルD')
+    # ABテストの候補はDBから引っ張るのが良さそう。
+    titles = ['広告タイトルA', '広告タイトルB', '広告タイトルC', '広告タイトルD']
+    @title = ab_test('101_記事タイトル_バナー2', *titles)
   end
 
   def count
